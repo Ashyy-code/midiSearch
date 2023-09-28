@@ -1,5 +1,8 @@
 <template>
-  <div class="app-wrapper">
+  <div v-if="!this.$store.state.appLoaded" class="loader">
+      Loading Data..
+  </div>
+  <div v-if="this.$store.state.appLoaded" class="app-wrapper">
     <div class="search-wrap">
       <input type="text" v-model="this.$store.state.searchTerm" />
       <i class="fas fa-search"></i>
@@ -27,6 +30,9 @@ import { stringifyQuery } from "vue-router";
 import store from "../store";
 
 export default {
+  mounted(){
+   
+  },
   watch: {
     "$store.state.searchTerm": function () {
       //begin the filter
@@ -46,6 +52,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.loader{
+  width:100vw;
+  height:100vh;
+  display: grid;
+  place-items: center;
+  color:white;
+}
 
 .midis-wrapper{
 

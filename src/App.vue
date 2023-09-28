@@ -10,11 +10,12 @@ export default {
     },
     methods:{
         async loadMidiData(){
-            await axios.get("https://ashypls.com/endpoints/apis/FFXIVMidis.aspx",{contentType:'application/json'}).then(
+            await axios.get("https://ashypls-001-site1.ftempurl.com/FFXIVMidis.aspx",{contentType:'application/json'}).then(
                 response =>{
                     this.$store.state.midiData = response.data;
                     this.$store.state.midiDataFiltered = response.data;
                     this.$store.state.appLoaded = true;
+                    //document.querySelector("input").focus();
                 }
             )
         }
